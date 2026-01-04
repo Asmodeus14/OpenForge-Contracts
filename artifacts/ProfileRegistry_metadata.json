@@ -1,0 +1,238 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					}
+				],
+				"name": "ProfileCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "oldCid",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newCid",
+						"type": "string"
+					}
+				],
+				"name": "ProfileUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "UPDATE_COOLDOWN",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "cid",
+						"type": "string"
+					}
+				],
+				"name": "createProfile",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getProfile",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasProfile",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "lastUpdated",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "newCid",
+						"type": "string"
+					}
+				],
+				"name": "updateProfile",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "OpenForge",
+			"details": "This contract is intentionally minimal and neutral",
+			"kind": "dev",
+			"methods": {
+				"createProfile(string)": {
+					"params": {
+						"cid": "IPFS/Arweave CID pointing to profile metadata JSON"
+					}
+				},
+				"getProfile(address)": {
+					"params": {
+						"user": "Wallet address"
+					}
+				},
+				"updateProfile(string)": {
+					"params": {
+						"newCid": "New IPFS/Arweave CID"
+					}
+				}
+			},
+			"stateVariables": {
+				"_profileCID": {
+					"details": "Wallet => profile metadata CID"
+				},
+				"hasProfile": {
+					"details": "Wallet => profile existence"
+				},
+				"lastUpdated": {
+					"details": "Wallet => last update timestamp"
+				}
+			},
+			"title": "ProfileRegistry",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"ProfileCreated(address,string)": {
+					"notice": "Emitted when a profile is created"
+				},
+				"ProfileUpdated(address,string,string)": {
+					"notice": "Emitted when a profile is updated"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"UPDATE_COOLDOWN()": {
+					"notice": "Cooldown period for profile updates (14 days)"
+				},
+				"createProfile(string)": {
+					"notice": "Create a new profile for the caller"
+				},
+				"getProfile(address)": {
+					"notice": "Get profile metadata CID for a user"
+				},
+				"updateProfile(string)": {
+					"notice": "Update existing profile metadata"
+				}
+			},
+			"notice": "Maps a wallet address to a profile metadata CID (stored on IPFS/Arweave)",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/ProfileRegister.sol": "ProfileRegistry"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/ProfileRegister.sol": {
+			"keccak256": "0xef3da7ce0bde042ce2bce285f39a42611008c94e140628796899e14383983366",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ac273d5a79daab1753a31c708fcaaa099f79c169c87b93e83b5f3f7450f7a2d",
+				"dweb:/ipfs/QmWQ6LTP8wgyB6nraJHFZjE5Y4NDvM8AzgUFuHDPHGytuN"
+			]
+		}
+	},
+	"version": 1
+}

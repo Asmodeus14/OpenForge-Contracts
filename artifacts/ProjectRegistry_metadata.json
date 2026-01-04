@@ -1,0 +1,225 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newMetadataCID",
+						"type": "string"
+					}
+				],
+				"name": "ProjectMetadataUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "builder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "metadataCID",
+						"type": "string"
+					}
+				],
+				"name": "ProjectRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "oldStatus",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "ProjectStatusUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProject",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "builder",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "metadataCID",
+						"type": "string"
+					},
+					{
+						"internalType": "enum ProjectRegistry.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextProjectId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "metadataCID",
+						"type": "string"
+					}
+				],
+				"name": "registerProject",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "newMetadataCID",
+						"type": "string"
+					}
+				],
+				"name": "updateProjectMetadata",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum ProjectRegistry.Status",
+						"name": "newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "updateProjectStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getProject(uint256)": {
+					"notice": "Get project details by id"
+				},
+				"registerProject(string)": {
+					"notice": "Register a new project with metadata CID (IPFS hash)"
+				},
+				"updateProjectMetadata(uint256,string)": {
+					"notice": "Update project metadata CID (only builder can update, only in Draft status)"
+				},
+				"updateProjectStatus(uint256,uint8)": {
+					"notice": "Update project status (only builder can update)"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/ProjectRegister.sol": "ProjectRegistry"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/ProjectRegister.sol": {
+			"keccak256": "0x4647131d08f1ae065bde60280b331f42a93a0f18103ed1a89809a3891c99c3f2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2d83e03c53e46dc618ee891a02a9d448dcc75ab2996b1e9f6ae3e08b02691ac0",
+				"dweb:/ipfs/QmWopeHtCqtWNJAd1qxwAzvbTJD5xHa2wQP1YRFSswf9M9"
+			]
+		}
+	},
+	"version": 1
+}
