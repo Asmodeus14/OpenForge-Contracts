@@ -1,6 +1,6 @@
 {
   "name": "ProjectRegistry",
-  "address": "0x8fc5b7c7ccaa22a062ab29216f29317d7be85106",
+  "address": "0x8796cbe1a841690e51db3212c88533c0213c66d2",
   "abi": [
     {
       "anonymous": false,
@@ -170,5 +170,5 @@
     }
   ],
   "filePath": "electron/Contracts/ProjectRegister.sol",
-  "pinnedAt": 1766479558058
+  "pinnedAt": 1767551600436
 }

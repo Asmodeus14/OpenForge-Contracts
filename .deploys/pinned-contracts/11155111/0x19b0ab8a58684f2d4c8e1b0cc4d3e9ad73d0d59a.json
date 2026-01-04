@@ -1,6 +1,6 @@
 {
   "name": "OpenForgeProjectRegistry",
-  "address": "0xb0d9d40490995c91b0d2259b27c77ba36b732260",
+  "address": "0x19b0ab8a58684f2d4c8e1b0cc4d3e9ad73d0d59a",
   "abi": [
     {
       "inputs": [
@@ -753,5 +753,5 @@
     }
   ],
   "filePath": "electron/Contracts/EScrow_Registry.sol",
-  "pinnedAt": 1767000697624
+  "pinnedAt": 1767551815532
 }

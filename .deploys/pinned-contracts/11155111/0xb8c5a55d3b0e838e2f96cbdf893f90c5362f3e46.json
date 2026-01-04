@@ -1,6 +1,6 @@
 {
   "name": "ProfileRegistry",
-  "address": "0x13f307dd0e3e46c22dd04b6d492d7b62b86c0f37",
+  "address": "0xb8c5a55d3b0e838e2f96cbdf893f90c5362f3e46",
   "abi": [
     {
       "inputs": [
@@ -144,5 +144,5 @@
     }
   ],
   "filePath": "electron/Contracts/ProfileRegister.sol",
-  "pinnedAt": 1766480095002
+  "pinnedAt": 1767551709749
 }
