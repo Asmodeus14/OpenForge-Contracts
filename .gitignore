@@ -1,0 +1,9 @@
+node_modules/
+.env
+cache/
+
+# Hardhat build output. The Remix artifacts already in this repo are kept:
+# they are the record of what is actually deployed on Sepolia.
+artifacts/@openzeppelin/
+artifacts/Contracts/
+artifacts/build-info/
