@@ -12,10 +12,59 @@ const { ethers, network, run } = require('hardhat');
  * Usage:
  *   SEPOLIA_RPC_URL=...  DEPLOYER_PRIVATE_KEY=...  npm run deploy:sepolia
  */
+/**
+ * Checks the configuration before anything touches the network.
+ *
+ * Order matters: asking ethers for a signer opens an RPC connection, so a bad
+ * URL surfaces as `HH110: invalid project id` and hides the real problem.
+ * Nothing here logs a value — one of them is a private key.
+ */
+function checkConfig() {
+  if (network.name === 'hardhat') return;
+
+  const problems = [];
+
+  const url = process.env.SEPOLIA_RPC_URL;
+  if (!url) {
+    problems.push('SEPOLIA_RPC_URL is not set.');
+  } else if (/your|<|>/i.test(url)) {
+    problems.push(
+      'SEPOLIA_RPC_URL still contains the .env.example placeholder.\n' +
+        '    Get a free endpoint from infura.io or alchemy.com. An Infura URL\n' +
+        '    ends in a 32-character project id, not "YOUR_KEY".',
+    );
+  }
+
+  const key = process.env.DEPLOYER_PRIVATE_KEY;
+  const normalised = key && !key.startsWith('0x') ? `0x${key}` : key;
+  if (!key) {
+    problems.push('DEPLOYER_PRIVATE_KEY is not set.');
+  } else if (key.includes('your_deployer_key')) {
+    problems.push('DEPLOYER_PRIVATE_KEY is still the .env.example placeholder.');
+  } else if (!/^0x[0-9a-fA-F]{64}$/.test(normalised)) {
+    problems.push(
+      `DEPLOYER_PRIVATE_KEY is not a 32-byte hex key (got ${key.length} characters).`,
+    );
+  }
+
+  if (problems.length === 0) return;
+
+  throw new Error(
+    `Fix these in C:\\CODE\\OpenForge-Contracts\\.env before deploying:\n\n` +
+      problems.map((p) => `  - ${p}`).join('\n') +
+      '\n\n  The private key is 64 hex characters. In MetaMask: account menu ->\n' +
+      '  Account details -> Show private key.\n\n' +
+      '  Use a throwaway account holding only Sepolia test ETH. This key sits\n' +
+      '  in a file on disk, and anything it controls is at risk.\n',
+  );
+}
+
 async function main() {
+  checkConfig();
+
   const [deployer] = await ethers.getSigners();
   if (!deployer) {
-    throw new Error('No signer. Set DEPLOYER_PRIVATE_KEY in .env');
+    throw new Error('No signer available for this network.');
   }
 
   const balance = await ethers.provider.getBalance(deployer.address);
