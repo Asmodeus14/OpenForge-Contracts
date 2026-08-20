@@ -6,6 +6,28 @@ been one.
 
 ---
 
+## Reporting a vulnerability
+
+Report privately through GitHub's **Report a vulnerability** button under this
+repository's Security tab. Please do not open a public issue for anything
+exploitable while contracts holding it are live.
+
+Useful reports say what an attacker can take or lock, and how — a failing test
+against this repository is the clearest form. No bug bounty is offered; there
+is no budget for one and implying otherwise would be dishonest.
+
+**Everything here is on the Sepolia test network and the tokens have no
+monetary value.** The old contracts described below are still deployed and
+still hold whatever they hold.
+
+Note that the greatest remaining risk is not a coding defect. There is no
+arbitrator: if a funder simply never releases a milestone, the developer has no
+on-chain claim, and once the deadline passes the funder may reclaim it. The
+escrow guarantees the money exists and cannot be pulled back from work that is
+still in date. It does not guarantee payment.
+
+---
+
 ## The defect that mattered most
 
 **The escrow did not escrow.**

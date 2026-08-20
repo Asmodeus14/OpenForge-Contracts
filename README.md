@@ -59,3 +59,28 @@ docs/           SECURITY.md, GAS_OPTIMIZATION.md
 `deployed-v1/` is not compiled. It is the code currently live on Sepolia, kept
 so the addresses in the frontend can be traced to a source. Every defect
 described in `docs/SECURITY.md` is still present in it.
+
+## Related repositories
+
+| Repository | Contains |
+|---|---|
+| [OpenForge](https://github.com/Asmodeus14/OpenForge) | The Next.js frontend |
+| [OpenForge-Backend](https://github.com/Asmodeus14/OpenForge-Backend) | Chat: Express, Socket.IO, Postgres |
+
+## Documentation
+
+| | |
+|---|---|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to change contracts that hold money |
+| [docs/SECURITY.md](docs/SECURITY.md) | What v1 got wrong, what v2 does, reporting |
+| [docs/GAS_OPTIMIZATION.md](docs/GAS_OPTIMIZATION.md) | Why the optimiser is tuned the way it is |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
+
+**These contracts have not been audited.** There is a test suite — 29 tests,
+each named after the failure it prevents — but tests show that known cases
+behave, not that unknown ones do. Sepolia tokens have no monetary value. Do not
+deploy this where they do.
+
+## Licence
+
+[MIT](LICENSE).
